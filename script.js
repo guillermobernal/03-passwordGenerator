@@ -1,12 +1,14 @@
 // Assignment code here
-var passwordLength = 0; 
-var passwordLower = "y";
-var passwordUpper = "y";
-var passwordNumbers = "y";
-var passwordSpecial = "y";
 
 function generatePassword (){
+
+  var passwordLength = 0; 
+  var passwordLower = "y";
+  var passwordUpper = "y";
+  var passwordNumbers = "y";
+  var passwordSpecial = "y";
   var randomPassword = "";
+
   passwordLength = window.prompt ("How many characters do you want in your password? (8-128)");
   passwordLower = window.prompt ("Do you want lower case letters? (Y/N)");
   passwordLower = passwordLower.toLowerCase();
@@ -17,11 +19,12 @@ function generatePassword (){
   passwordSpecial = window.prompt ("Do you want special characters? (Y/N)");
   passwordSpecial = passwordSpecial.toLowerCase();
 
-  if (passwordLength >=8 && passwordLength <= 128) {
-      if (passwordLower == "y" || passwordNumbers == "y" || passwordUpper == "y" || passwordSpecial =="y"){
+  if (passwordLength >=8 && passwordLength <= 128) 
+  {
+      if (passwordLower == "y" || passwordNumbers == "y" || passwordUpper == "y" || passwordSpecial =="y")
+      {
       
         var pool = "";
-        var charactersLength = pool.length;
 
         if(passwordLower == "y"){
           pool += "abcdefghijklmnopqrstuvwxyz";
@@ -36,17 +39,21 @@ function generatePassword (){
           pool += "!@#$%^&*()_+";
         }
 
-        for ( var i = 0; i < length; i++ ) {
-          randomPassword += pool.charAt(Math.floor(Math.random() * charactersLength));
-       }
-       return randomPassword+;
+        var poolLength = pool.length;
+
+        for ( var i = 0; i < passwordLength; i++ )
+        {
+          randomPassword += pool.charAt(Math.floor(Math.random() * poolLength));
+        }
+        
+       return randomPassword;
       }
       else {
         alert("Try again please select Y at least once ");
       }
-    }
-  
-  else {
+  }  
+  else 
+  {
     alert("Try again Please Pick a number between 8-128");
   }
 
